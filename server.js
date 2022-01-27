@@ -23,7 +23,7 @@ function startScript() {
     name: "action",
     choices: ["View Departments", "View Roles", "View Employees", "Add Department", "Add Role", "Add Employee", "Exit"]
   })
-    .then((responses) => {
+    .then(function (response) {
       switch (response.action) {
         case 'View Departments':
           viewDepartments();
@@ -86,12 +86,12 @@ function addDepartment() {
       message: "Please enter department name"
     },
   ])
-    .then((response) => {
+    .then(function (response) {
       const statement = `INSERT INTO departments (name)
                             VALUES(?)`;
       connection.query(statement, response.addDepartment, (err, res) => {
         if (err) throw err;
-        console.table(rows);
+        console.table(res);
         startScript();
       });
     });
@@ -118,10 +118,10 @@ function addEmployee() {
     {
       type: "input",
       name: "roles_id",
-      message: "Employee role"
+      message: "Employee role ID"
     },
   ])
-    .then((response) => {
+    .then(function (response) {
       const statement = `INSERT INTO employees (first_name, last_name, roles_id, manager_id)
                             VALUES(?,?,?,?,?)`;
       const bio = [
@@ -130,8 +130,9 @@ function addEmployee() {
         response.job_title,
         response.roles_id
       ];
-      connection.query(statement, bio, (err, rows) => {
+      connection.query(statement, bio, (err, res) => {
         if (err) throw err;
+        console.table(res);
         startScript();
       });
     });
@@ -152,21 +153,21 @@ function addRole() {
     },
     {
       type: "input",
-      name: "dept",
-      message: "Employee's department name"
+      name: "deptartment",
+      message: "Employee's department ID"
     },
   ])
-    .then((response) => {
+    .then(function (response) {
       const statement = `INSERT INTO roles (title, salary, departments_id)
                 VALUES(?,?,?)`;
       const bio = [
         response.role,
         response.salary,
-        response.dept
+        response.deptartment
       ];
       connection.query(statement, bio, (err, res) => {
         if (err) throw err;
-        console.table(rows);
+        console.table(res);
         startScript();
       });
     });
