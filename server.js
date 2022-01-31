@@ -112,23 +112,23 @@ function addEmployee() {
     },
     {
       type: "input",
-      name: "job_title",
-      message: "Employee job title"
+      name: "roles_id",
+      message: "Employee role ID"
     },
     {
       type: "input",
-      name: "roles_id",
-      message: "Employee role ID"
+      name: "manager_id",
+      message: "Manager ID of Employee"
     },
   ])
     .then(function (response) {
       const statement = `INSERT INTO employees (first_name, last_name, roles_id, manager_id)
-                            VALUES(?,?,?,?,?)`;
+                            VALUES(?,?,?,?)`;
       const bio = [
         response.first_name,
         response.last_name,
-        response.job_title,
-        response.roles_id
+        response.roles_id,
+        response.manager_id
       ];
       connection.query(statement, bio, (err, res) => {
         if (err) throw err;
@@ -153,7 +153,7 @@ function addRole() {
     },
     {
       type: "input",
-      name: "deptartment",
+      name: "department",
       message: "Employee's department ID"
     },
   ])
@@ -163,7 +163,7 @@ function addRole() {
       const bio = [
         response.role,
         response.salary,
-        response.deptartment
+        response.department
       ];
       connection.query(statement, bio, (err, res) => {
         if (err) throw err;

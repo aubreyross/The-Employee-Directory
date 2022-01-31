@@ -16,7 +16,7 @@ VALUES  ('Sales Executive', 90000, 1),
 
 INSERT INTO employees (first_name, last_name, roles_id, manager_id)
 VALUES  ('Leslie', 'Knope', 2, null),
-        ('Ron', 'Swanson', 3, 3),
-        ('Tom', 'Haverford', 1, 5),
-        ('Andy', 'Dwyer', 5, 6),
-        ('April', 'Ludgate', 4, 8);
+        ('Ron', 'Swanson', 3, 2),
+        ('Tom', 'Haverford', 1, 2),
+        ('Andy', 'Dwyer', 5, 2),
+        ('April', 'Ludgate', 4, 2);
