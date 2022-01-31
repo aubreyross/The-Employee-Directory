@@ -31,7 +31,9 @@ WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database 
 
 ## Preview
+![Screen Shot 2022-01-31 at 3 42 39 AM](https://user-images.githubusercontent.com/87405979/151785324-6d6e3eeb-eddc-4c23-a8b8-6dfea2e19056.png)
+
 
 ## URLs
-* Code: 
-* Video: 
+* Code: https://github.com/aubreyross/The-Employee-Directory
+* Video: https://youtu.be/jFACnxWE55o
