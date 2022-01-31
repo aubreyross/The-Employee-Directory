@@ -29,10 +29,13 @@ WHEN I choose to add an employee
 THEN I am prompted to enter the employee’s first name, last name, role, and manager, and that employee is added to the database
 WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database 
+```
 
-## Preview
+## Preview 
+
 ![Screen Shot 2022-01-31 at 3 42 39 AM](https://user-images.githubusercontent.com/87405979/151785324-6d6e3eeb-eddc-4c23-a8b8-6dfea2e19056.png)
 
+![Screen Shot 2022-01-31 at 3 43 39 AM](https://user-images.githubusercontent.com/87405979/151785630-8a323653-ce71-478c-ad82-3132aa9dd0dd.png)
 
 ## URLs
 * Code: https://github.com/aubreyross/The-Employee-Directory
