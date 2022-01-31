@@ -2,14 +2,22 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const express = require("express");
-const connection = require("./db/connection.js");
 require('mysql');
 require('console.table');
 
 const app = express();
 
+const db = mysql.createConnection(
+    {
+      host: '127.0.0.1',
+      port: 3306,
+      user: 'root',
+      password: '',
+      database: 'company_db'
+    });
+
 //create connection 
-connection.connect((err) => {
+db.connect((err) => {
   if (err) throw (err);
   console.log('Connected!');
   startScript()
@@ -44,7 +52,7 @@ function startScript() {
           addRole();
           break;
         case 'Exit':
-          connection.end();
+          db.end();
           break;
       }
     });
@@ -53,7 +61,7 @@ function startScript() {
 //View Departments
 function viewDepartments() {
   const statement = `SELECT * FROM departments`
-  connection.query(statement, (err, res) => {
+  db.query(statement, (err, res) => {
     console.table(res);
     startScript();
   });
@@ -62,7 +70,7 @@ function viewDepartments() {
 //view employee roles
 function viewRoles() {
   const statement = `SELECT * FROM roles`
-  connection.query(statement, (err, res) => {
+  db.query(statement, (err, res) => {
     console.table(res);
     startScript();
   });
@@ -71,7 +79,7 @@ function viewRoles() {
 //view employees
 function viewEmployees() {
   const statement = `SELECT * FROM employees`
-  connection.query(statement, (err, res) => {
+  db.query(statement, (err, res) => {
     console.table(res);
     startScript();
   });
@@ -89,7 +97,7 @@ function addDepartment() {
     .then(function (response) {
       const statement = `INSERT INTO departments (name)
                             VALUES(?)`;
-      connection.query(statement, response.addDepartment, (err, res) => {
+      db.query(statement, response.addDepartment, (err, res) => {
         if (err) throw err;
         console.table(res);
         startScript();
@@ -130,7 +138,7 @@ function addEmployee() {
         response.roles_id,
         response.manager_id
       ];
-      connection.query(statement, bio, (err, res) => {
+      db.query(statement, bio, (err, res) => {
         if (err) throw err;
         console.table(res);
         startScript();
@@ -165,7 +173,7 @@ function addRole() {
         response.salary,
         response.department
       ];
-      connection.query(statement, bio, (err, res) => {
+      db.query(statement, bio, (err, res) => {
         if (err) throw err;
         console.table(res);
         startScript();
