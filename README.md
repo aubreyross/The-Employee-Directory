@@ -40,3 +40,12 @@ THEN I am prompted to select an employee to update and their new role and this i
 ## URLs
 * Code: https://github.com/aubreyross/The-Employee-Directory
 * Video: https://youtu.be/jFACnxWE55o
+
+## Resources
+* https://www.npmjs.com/package/mysql2
+* https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-getting-started.html
+* https://dev.mysql.com/doc/refman/8.0/en/creating-database.html
+* https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html
+* https://docs.oracle.com/cd/B19306_01/server.102/b14220/schema.htm
+* https://dev.mysql.com/doc/refman/8.0/en/loading-tables.html
+* https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html
